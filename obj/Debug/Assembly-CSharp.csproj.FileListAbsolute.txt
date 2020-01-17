@@ -1,0 +1,2 @@
+/Users/strykerbuffington/Ball of Motion/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
+/Users/strykerbuffington/Ball of Motion/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
