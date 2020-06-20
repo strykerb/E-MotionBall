@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{076554E1-E6A2-F56A-90D9-DC0AF0B07A5A}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/menuMusic.cs">
+    <Files>
+      <File FileName="Assets/Scripts/LevelSelect.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/menuMusic.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerController.cs" />
+      <File FileName="Assets/Scripts/killPlayer.cs" />
+      <File FileName="Assets/Scripts/BackController.cs" Line="13" Column="51" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1a2c5ea5-3fbb-4793-a76b-9b3e1417b9ce" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class menuMusic : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class menuMusic : MonoBehaviour
     public static void playMusic()
     {
         stop = false;
+        AudioBegin = true;
         musicinstance.GetComponent<AudioSource>().Play();
         Debug.Log("play music called");
     }
@@ -49,15 +51,15 @@ public class menuMusic : MonoBehaviour
     {
         stop = true;
         AudioBegin = false;
-        Debug.Log("stop music called");
+        musicinstance.GetComponent<AudioSource>().Stop();
     }
 
     void Update()
     {
-        if (stop)
+        if (SceneManager.GetActiveScene().name.Equals("LevelSelect") && AudioBegin)
         {
-            musicinstance.GetComponent<AudioSource>().Stop();
-        } 
+            stopMusic();
+        }
     }
 }
 

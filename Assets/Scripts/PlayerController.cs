@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviour {
         if (menuMusic.musicinstance != null && !menuMusic.AudioBegin)
         {
             menuMusic.playMusic();
-            Debug.Log("playing music");
         }
     }
 
