@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -18,12 +19,12 @@ public class PlayerController : MonoBehaviour {
     public Button nextLevel;
     public Button retry;
     public Button home;
-    public int finishTime;
+    public float finishTime;
     public bool introExists;
     public int level;
     public AudioClip winNoise;
 
-    private int time;
+    private float time;
     private static int InvertFactor;
     private bool gyroEnabled;
     private static bool win;
@@ -50,6 +51,16 @@ public class PlayerController : MonoBehaviour {
         {
             backDrop.gameObject.SetActive(false);
         }
+        
+    }
+
+    private void Awake()
+    {
+        if (menuMusic.musicinstance != null && !menuMusic.AudioBegin)
+        {
+            menuMusic.playMusic();
+            Debug.Log("playing music");
+        }
     }
 
     public static void Revert()
@@ -61,8 +72,8 @@ public class PlayerController : MonoBehaviour {
     private void Update()
     {
         SetAttemptText();
-        time++;
-        if (introExists && time > 150)
+        time += Time.deltaTime;
+        if (introExists && time > 3)
         {
             introText.text = "";
             backDrop.gameObject.SetActive(false);
@@ -106,7 +117,11 @@ public class PlayerController : MonoBehaviour {
         nextLevel.gameObject.SetActive(true);
         retry.gameObject.SetActive(true);
         home.gameObject.SetActive(true);
-        startService("com.buffingtonstudios.broadcastjar.MyServiceStarter");
+        float prevHigh = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name, 999f);
+        if (finishTime < prevHigh)
+        {
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, finishTime);
+        }
     }
 
     void startService(string packageName)
@@ -174,13 +189,8 @@ public class PlayerController : MonoBehaviour {
 
     public void exitGame()
     {
-        AndroidJavaClass unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        AndroidJavaObject unityActivity = unityClass.GetStatic<AndroidJavaObject>("currentActivity");
-        endClass = new AndroidJavaObject("com.buffingtonstudios.broadcastjar.EndReceiverBroadcaster");
-        endClass.Call("EndService", unityActivity);
-        unityActivity.Dispose();
-        endClass.Dispose();
-        Application.Quit();
+        menuMusic.stopMusic();
+        SceneManager.LoadScene("LevelSelect");
     }
 
 }
