@@ -2,12 +2,14 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour {
 
     public float speed = 8.0f;
     public static int numberOfAttempts;
     public static bool inverted;
+    bool paused;
     public Text winText;
     public Text Attempts;
     public Text introText;
@@ -19,10 +21,13 @@ public class PlayerController : MonoBehaviour {
     public Button nextLevel;
     public Button retry;
     public Button home;
+    public Button pause;
+    public Button settings;
     public float finishTime;
     public bool introExists;
     public int level;
     public AudioClip winNoise;
+    Slider VolumeBar;
 
     private float time;
     private static int InvertFactor;
@@ -36,10 +41,56 @@ public class PlayerController : MonoBehaviour {
     void Start ()
     {
         //gyroEnabled = EnableGyro();
-        rb = GetComponent<Rigidbody2D>();
+        Canvas c = FindObjectOfType<Canvas>();
+        if (c == null)
+        {
+            Debug.Log("Canvas is null");
+        }
+        Button[] buttons = c.GetComponentsInChildren<Button>(true);
+        foreach (Button b in buttons)
+        {
+            if (b.CompareTag("PauseButton")){
+                pause = b;
+            }
+            else if (b.name.Equals("NextButton"))
+            {
+                nextLevel = b;
+            }
+            else if (b.name.Equals("HomeButton"))
+            {
+                home = b;
+            }
+            else if (b.name.Equals("RetryButton"))
+            {
+                retry = b;
+            }
+        }
         nextLevel.gameObject.SetActive(false);
         retry.gameObject.SetActive(false);
         home.gameObject.SetActive(false);
+
+        VolumeBar = c.GetComponentInChildren<Slider>(true);
+        winText = GameObject.Find("WinText").GetComponent<Text>();
+        Attempts = GameObject.Find("AttemptText").GetComponent<Text>();
+        introText = GameObject.Find("Intro Text").GetComponent<Text>();
+        Image[] im = c.GetComponentsInChildren<Image>(true);
+        foreach (Image i in im)
+        {
+            if (i.name.Equals("BackDrop")) {
+                backDrop = i;
+            }
+        }
+        if (backDrop == null)
+        {
+            Debug.Log("backdrop is null");
+        }
+        if (backDrop.gameObject == null)
+        {
+            Debug.Log("backdrop.gameObject is null");
+        }
+        backDrop.gameObject.SetActive(false);
+        backDrop.gameObject.SetActive(true);
+        rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         InvertFactor = 1;
         winText.text = "";
@@ -51,7 +102,9 @@ public class PlayerController : MonoBehaviour {
         {
             backDrop.gameObject.SetActive(false);
         }
-        
+        Debug.Log(backDrop);
+        introText.text = IntroData.data[SceneManager.GetActiveScene().buildIndex-2];
+        paused = false;
     }
 
     private void Awake()
@@ -82,6 +135,7 @@ public class PlayerController : MonoBehaviour {
         {
             StageComplete();
         }
+        Debug.Log(backDrop);
     }
 
     void FixedUpdate ()
@@ -111,7 +165,7 @@ public class PlayerController : MonoBehaviour {
         winText.text = "Level Complete!" + System.Environment.NewLine + "in " + numberOfAttempts.ToString() + " Attempts";
         backDrop.gameObject.SetActive(true);
         finishTime = time;
-        Player.SetActive(false);
+        gameObject.SetActive(false);
         Revert();
         nextLevel.gameObject.SetActive(true);
         retry.gameObject.SetActive(true);
@@ -121,6 +175,49 @@ public class PlayerController : MonoBehaviour {
         {
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, finishTime);
         }
+    }
+
+    public void togglePause()
+    {
+        Debug.Log(backDrop);
+        if (paused)
+        {
+            paused = false;
+            resumeGame();
+        } 
+        else
+        {
+            paused = true;
+            pauseGame();
+        }
+    }
+    void resumeGame()
+    {
+        Time.timeScale = 1;
+        backDrop.gameObject.SetActive(false);
+        home.gameObject.SetActive(false);
+        VolumeBar.gameObject.SetActive(false);
+        winText.text = "";
+        Sprite[] IconsAtlas = Resources.LoadAll<Sprite>("Textures/theme-1-3-e");
+        // Get specific sprite
+        Sprite settingsSprite = IconsAtlas.Single(s => s.name == "settings");
+        //Sprite s = Resources.Load<Sprite>("Textures/theme-1-3-e_10.png");
+        pause.GetComponent<Image>().overrideSprite = settingsSprite;
+    }
+
+    void pauseGame()
+    {
+        Debug.Log(backDrop);
+        backDrop.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        home.gameObject.SetActive(true);
+        VolumeBar.gameObject.SetActive(true);
+        winText.text = "Paused";
+        Sprite[] IconsAtlas = Resources.LoadAll<Sprite>("Textures/theme-1-4-c");
+        // Get specific sprite
+        Sprite settingsSprite = IconsAtlas.Single(s => s.name == "close");
+        //Sprite s = Resources.Load<Sprite>("Textures/theme-1-3-e_10.png");
+        pause.GetComponent<Image>().overrideSprite = settingsSprite;
     }
 
     void startService(string packageName)
@@ -189,7 +286,7 @@ public class PlayerController : MonoBehaviour {
     public void exitGame()
     {
         menuMusic.stopMusic();
+        paused = false;
         SceneManager.LoadScene("LevelSelect");
     }
-
 }

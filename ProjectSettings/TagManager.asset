@@ -8,6 +8,7 @@ TagManager:
   - Win
   - HintChanger
   - Invert
+  - PauseButton
   layers:
   - Default
   - TransparentFX

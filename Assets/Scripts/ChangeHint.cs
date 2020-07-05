@@ -15,6 +15,7 @@ public class ChangeHint : MonoBehaviour
         count = 0;
         created = false;
         queued = false;
+        introText = GameObject.Find("Intro Text").GetComponent<Text>();
     }
 
     // Update is called once per frame
