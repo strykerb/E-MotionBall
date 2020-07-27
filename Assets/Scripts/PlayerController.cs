@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
     public Text winText;
     public Text Attempts;
     public Text introText;
-    public  Image backDrop;
+    public Image backDrop;
     public GameObject Player;
     public Rigidbody2D rb;
     public float moveHorizontal = 0.0f;
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     public Button home;
     public Button pause;
     public Button settings;
+    public Button PrivPolicy;
     public float finishTime;
     public bool introExists;
     public int level;
@@ -64,10 +65,15 @@ public class PlayerController : MonoBehaviour {
             {
                 retry = b;
             }
+            else if (b.name.Equals("PrivacyPolicy"))
+            {
+                PrivPolicy = b;
+            }
         }
         nextLevel.gameObject.SetActive(false);
         retry.gameObject.SetActive(false);
         home.gameObject.SetActive(false);
+        PrivPolicy.gameObject.SetActive(false);
 
         VolumeBar = c.GetComponentInChildren<Slider>(true);
         winText = GameObject.Find("WinText").GetComponent<Text>();
@@ -78,6 +84,7 @@ public class PlayerController : MonoBehaviour {
         {
             if (i.name.Equals("BackDrop")) {
                 backDrop = i;
+                Debug.Log("BackDrop Exists");
             }
         }
         if (backDrop == null)
@@ -89,7 +96,7 @@ public class PlayerController : MonoBehaviour {
             Debug.Log("backdrop.gameObject is null");
         }
         backDrop.gameObject.SetActive(false);
-        backDrop.gameObject.SetActive(true);
+        //backDrop.gameObject.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         InvertFactor = 1;
@@ -98,10 +105,12 @@ public class PlayerController : MonoBehaviour {
         SetAttemptText();
         win = false;
         time = 0;
+        /*
         if (!introExists)
         {
             backDrop.gameObject.SetActive(false);
         }
+        */
         Debug.Log(backDrop);
         introText.text = IntroData.data[SceneManager.GetActiveScene().buildIndex-2];
         paused = false;
@@ -128,7 +137,7 @@ public class PlayerController : MonoBehaviour {
         if (introExists && time > 3)
         {
             introText.text = "";
-            backDrop.gameObject.SetActive(false);
+            //backDrop.gameObject.SetActive(false);
             introExists = false;
         }
         if (win) 
@@ -183,19 +192,22 @@ public class PlayerController : MonoBehaviour {
         if (paused)
         {
             paused = false;
+            backDrop.gameObject.SetActive(false);
             resumeGame();
         } 
         else
         {
             paused = true;
+            backDrop.gameObject.SetActive(true);
             pauseGame();
         }
     }
     void resumeGame()
     {
         Time.timeScale = 1;
-        backDrop.gameObject.SetActive(false);
+        //backDrop.gameObject.SetActive(false);
         home.gameObject.SetActive(false);
+        PrivPolicy.gameObject.SetActive(false);
         VolumeBar.gameObject.SetActive(false);
         winText.text = "";
         Sprite[] IconsAtlas = Resources.LoadAll<Sprite>("Textures/theme-1-3-e");
@@ -208,10 +220,11 @@ public class PlayerController : MonoBehaviour {
     void pauseGame()
     {
         Debug.Log(backDrop);
-        backDrop.gameObject.SetActive(true);
+        //backDrop.gameObject.SetActive(true);
         Time.timeScale = 0;
         home.gameObject.SetActive(true);
         VolumeBar.gameObject.SetActive(true);
+        PrivPolicy.gameObject.SetActive(false);
         winText.text = "Paused";
         Sprite[] IconsAtlas = Resources.LoadAll<Sprite>("Textures/theme-1-4-c");
         // Get specific sprite
