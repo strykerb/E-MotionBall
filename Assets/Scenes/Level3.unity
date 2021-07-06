@@ -400,12 +400,12 @@ PrefabInstance:
         type: 3}
       propertyPath: Attempts
       value: 
-      objectReference: {fileID: 1675503703}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: winText
       value: 
-      objectReference: {fileID: 1675503702}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: Player
@@ -415,27 +415,27 @@ PrefabInstance:
         type: 3}
       propertyPath: nextLevel
       value: 
-      objectReference: {fileID: 1675503701}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: introText
       value: 
-      objectReference: {fileID: 1675503698}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: retry
       value: 
-      objectReference: {fileID: 1675503700}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: home
       value: 
-      objectReference: {fileID: 1675503699}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: backDrop
       value: 
-      objectReference: {fileID: 1675503704}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: introExists
@@ -1633,92 +1633,33 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Level3
       objectReference: {fileID: 0}
+    - target: {fileID: 8213661764641923419, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213661764641923419, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213661764641923419, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050906087196115009, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050906087196115009, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48f76d201c9db463792e01a88f6fa8ad, type: 3}
---- !u!114 &1675503698 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2717397419482763305, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 1675503697}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1675503699 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4870508427560125994, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 1675503697}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1675503700 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3354255988452873713, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 1675503697}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1675503701 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 104676195813972941, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 1675503697}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1675503702 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2639184492371597481, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 1675503697}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1675503703 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4346217176169543366, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 1675503697}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1675503704 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1291433330138243755, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 1675503697}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1687402280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1699,8 @@ AudioSource:
   m_GameObject: {fileID: 1687402280}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 9d4d8bb0314f3b64cb23f7b2dca216ab,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 05caadbd40d2c4cb3b685bad142b6820, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

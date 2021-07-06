@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8830106042364022637}
   - component: {fileID: 8830106042364022636}
-  - component: {fileID: 4551659553750927937}
   m_Layer: 0
   m_Name: deathNoise
   m_TagString: Untagged
@@ -128,15 +127,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4551659553750927937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8830106042364022639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e171d16e88cbd410780a328534e10db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

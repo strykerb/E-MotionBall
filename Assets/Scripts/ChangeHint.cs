@@ -37,9 +37,14 @@ public class ChangeHint : MonoBehaviour
 
         if (count > 150)
         {
-            introText.text = "";
-            created = false;
+            removeIntro();
         }
+    }
+
+    public void removeIntro()
+    {
+        introText.text = "";
+        created = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -28,8 +28,10 @@ public class PlayerController : MonoBehaviour {
     public bool introExists;
     public int level;
     public AudioClip winNoise;
+    public AudioClip deathNoise;
     Slider VolumeBar;
-
+    
+    AudioSource output;
     private float time;
     private static int InvertFactor;
     private bool gyroEnabled;
@@ -87,24 +89,18 @@ public class PlayerController : MonoBehaviour {
                 Debug.Log("BackDrop Exists");
             }
         }
-        if (backDrop == null)
-        {
-            Debug.Log("backdrop is null");
-        }
-        if (backDrop.gameObject == null)
-        {
-            Debug.Log("backdrop.gameObject is null");
-        }
         backDrop.gameObject.SetActive(false);
         //backDrop.gameObject.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         InvertFactor = 1;
+        inverted = false;
         winText.text = "";
         numberOfAttempts = 1;
         SetAttemptText();
         win = false;
         time = 0;
+        output = gameObject.GetComponent<AudioSource>();
         /*
         if (!introExists)
         {
@@ -114,6 +110,7 @@ public class PlayerController : MonoBehaviour {
         Debug.Log(backDrop);
         introText.text = IntroData.data[SceneManager.GetActiveScene().buildIndex-2];
         paused = false;
+        resumeGame();
     }
 
     private void Awake()
@@ -144,7 +141,6 @@ public class PlayerController : MonoBehaviour {
         {
             StageComplete();
         }
-        Debug.Log(backDrop);
     }
 
     void FixedUpdate ()
@@ -170,7 +166,7 @@ public class PlayerController : MonoBehaviour {
 
     public void StageComplete()
     {
-        AudioSource.PlayClipAtPoint(winNoise, transform.position);
+        PlayAudio(1);
         winText.text = "Level Complete!" + System.Environment.NewLine + "in " + numberOfAttempts.ToString() + " Attempts";
         backDrop.gameObject.SetActive(true);
         finishTime = time;
@@ -188,7 +184,16 @@ public class PlayerController : MonoBehaviour {
 
     public void togglePause()
     {
-        Debug.Log(backDrop);
+        removeIntro();
+        if (backDrop == null)
+        {
+            PlayerController playerinstance = FindObjectOfType<PlayerController>();
+            if (playerinstance != null)
+            {
+                playerinstance.togglePause();
+            }
+            return;
+        }
         if (paused)
         {
             paused = false;
@@ -219,12 +224,11 @@ public class PlayerController : MonoBehaviour {
 
     void pauseGame()
     {
-        Debug.Log(backDrop);
-        //backDrop.gameObject.SetActive(true);
+        
         Time.timeScale = 0;
         home.gameObject.SetActive(true);
         VolumeBar.gameObject.SetActive(true);
-        PrivPolicy.gameObject.SetActive(false);
+        PrivPolicy.gameObject.SetActive(true);
         winText.text = "Paused";
         Sprite[] IconsAtlas = Resources.LoadAll<Sprite>("Textures/theme-1-4-c");
         // Get specific sprite
@@ -233,18 +237,9 @@ public class PlayerController : MonoBehaviour {
         pause.GetComponent<Image>().overrideSprite = settingsSprite;
     }
 
-    void startService(string packageName)
-    {
-        AndroidJavaClass unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        AndroidJavaObject unityActivity = unityClass.GetStatic<AndroidJavaObject>("currentActivity");
-        customClass = new AndroidJavaObject(packageName);
-        customClass.Call("StartService", unityActivity, numberOfAttempts, time, level);
-        customClass.Dispose();
-    }
-
     void SetAttemptText()
     {
-        Attempts.text = "Attempt " + numberOfAttempts.ToString();
+        Attempts.text = "Time: " + System.Math.Round(time, 2);
     }
 
     public static void IncrementAttempts() 
@@ -273,6 +268,8 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.CompareTag("Spikes"))
         {
             inverted = false;
+            PlayAudio(0);
+            Debug.Log("Dead");
         }
     }
 
@@ -299,7 +296,27 @@ public class PlayerController : MonoBehaviour {
     public void exitGame()
     {
         menuMusic.stopMusic();
-        paused = false;
+        if (paused)
+        {
+            togglePause();
+        }
         SceneManager.LoadScene("LevelSelect");
+    }
+
+    public void removeIntro()
+    {
+        if (introText != null) { introText.text = ""; }
+    }
+
+    public void PlayAudio (int idx)
+    {
+        if (idx == 0)
+        {
+            AudioSource.PlayClipAtPoint(deathNoise, new Vector3(0, 0, 0), PlayerPrefs.GetFloat("MusicVolume", 0.75f));
+        }
+        else if (idx == 1)
+        {
+            AudioSource.PlayClipAtPoint(winNoise, new Vector3(0, 0, 0), PlayerPrefs.GetFloat("MusicVolume", 0.75f));
+        }
     }
 }

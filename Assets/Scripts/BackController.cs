@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BackController : MonoBehaviour
 {
@@ -10,9 +11,15 @@ public class BackController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Escape))
             {
-                PlayerController pc = new PlayerController();
-                pc.exitGame();
-                Application.Quit();
+                if (SceneManager.GetActiveScene().name.Equals("LevelSelect"))
+                {
+                    Application.Quit();
+                }
+                else
+                {
+                    PlayerController pc = new PlayerController();
+                    pc.exitGame();
+                }
             }
         }
     }

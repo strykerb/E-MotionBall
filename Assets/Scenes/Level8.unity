@@ -229,11 +229,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7230964237364020816, guid: 48f76d201c9db463792e01a88f6fa8ad,
-        type: 3}
-      propertyPath: m_Text
-      value: HOW STRAIGHT CAN YOU MOVE?
-      objectReference: {fileID: 0}
     - target: {fileID: 2717397419482763305, guid: 48f76d201c9db463792e01a88f6fa8ad,
         type: 3}
       propertyPath: m_Text
@@ -271,20 +266,35 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Level8
       objectReference: {fileID: 0}
-    - target: {fileID: 2639184492371597481, guid: 48f76d201c9db463792e01a88f6fa8ad,
+    - target: {fileID: 8213661764641923419, guid: 48f76d201c9db463792e01a88f6fa8ad,
         type: 3}
-      propertyPath: m_Text
-      value: "Win \nText"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1291433330138243755, guid: 48f76d201c9db463792e01a88f6fa8ad,
-        type: 3}
-      propertyPath: m_RaycastTarget
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4880414179722438788, guid: 48f76d201c9db463792e01a88f6fa8ad,
+    - target: {fileID: 8213661764641923419, guid: 48f76d201c9db463792e01a88f6fa8ad,
         type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 4294967295
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213661764641923419, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050906087196115009, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050906087196115009, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230964237364020816, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_Text
+      value: HOW STRAIGHT CAN YOU MOVE?
       objectReference: {fileID: 0}
     - target: {fileID: 4880414179879509614, guid: 48f76d201c9db463792e01a88f6fa8ad,
         type: 3}
@@ -306,6 +316,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: changeLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 4880414179722438788, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291433330138243755, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639184492371597481, guid: 48f76d201c9db463792e01a88f6fa8ad,
+        type: 3}
+      propertyPath: m_Text
+      value: "Win \nText"
+      objectReference: {fileID: 0}
     - target: {fileID: 4880414180305047601, guid: 48f76d201c9db463792e01a88f6fa8ad,
         type: 3}
       propertyPath: m_RaycastTarget
@@ -319,90 +344,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 12558929}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &12558931 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2717397419482763305, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 12558929}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &12558932 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4870508427560125994, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 12558929}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &12558933 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3354255988452873713, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 12558929}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &12558934 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 104676195813972941, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 12558929}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &12558935 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2639184492371597481, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 12558929}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &12558936 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4346217176169543366, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 12558929}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &12558937 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1291433330138243755, guid: 48f76d201c9db463792e01a88f6fa8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 12558929}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &12558938
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1518,37 +1459,37 @@ PrefabInstance:
         type: 3}
       propertyPath: winText
       value: 
-      objectReference: {fileID: 12558935}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: Attempts
       value: 
-      objectReference: {fileID: 12558936}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: introText
       value: 
-      objectReference: {fileID: 12558931}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: backDrop
       value: 
-      objectReference: {fileID: 12558937}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: nextLevel
       value: 
-      objectReference: {fileID: 12558934}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: retry
       value: 
-      objectReference: {fileID: 12558933}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: home
       value: 
-      objectReference: {fileID: 12558932}
+      objectReference: {fileID: 0}
     - target: {fileID: 2210817111509170191, guid: e9e91b76085c04cf3bbd4d74254f50a9,
         type: 3}
       propertyPath: level

@@ -9,6 +9,7 @@ TagManager:
   - HintChanger
   - Invert
   - PauseButton
+  - Level
   layers:
   - Default
   - TransparentFX

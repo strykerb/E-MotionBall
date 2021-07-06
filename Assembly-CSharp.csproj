@@ -63,31 +63,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\HighScores.cs" />
-    <Compile Include="Assets\LevelChanger.cs" />
     <Compile Include="Assets\Scripts\Accelerometer.cs" />
     <Compile Include="Assets\Scripts\BackController.cs" />
     <Compile Include="Assets\Scripts\ChangeHint.cs" />
     <Compile Include="Assets\Scripts\GyroControls.cs" />
+    <Compile Include="Assets\Scripts\HighScores.cs" />
     <Compile Include="Assets\Scripts\IntroData.cs" />
     <Compile Include="Assets\Scripts\invertPlayer.cs" />
     <Compile Include="Assets\Scripts\killPlayer.cs" />
+    <Compile Include="Assets\Scripts\LevelChanger.cs" />
     <Compile Include="Assets\Scripts\LevelController.cs" />
     <Compile Include="Assets\Scripts\LevelSelect.cs" />
     <Compile Include="Assets\Scripts\menuMusic.cs" />
     <Compile Include="Assets\Scripts\OpenLink.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PortalController.cs" />
-    <Compile Include="Assets\SetVolume.cs" />
+    <Compile Include="Assets\Scripts\SetVolume.cs" />
     <None Include="Assets\QS\Atlas\ComposerUI.txt" />
     <None Include="Assets\QS\Shaders\ComposerUI.txt" />
     <None Include="Assets\QS\Functions\ComposerUI.txt" />
     <None Include="Assets\QS\Documentation\ComposerUI.txt" />
+    <None Include="Assets\GooglePlayPlugins\com.google.play.billing\Proguard\billing.txt" />
     <None Include="Assets\QS\Sliced\no delete.txt" />
     <None Include="Assets\Resources\Textures\Skills\ComposerUI.txt" />
     <None Include="Assets\Procedural_Materials\Read me.txt" />
+    <None Include="Assets\GooglePlayPlugins\com.google.play.review\Proguard\review.txt" />
     <None Include="Assets\Resources\Textures\Masks\ComposerUI.txt" />
     <None Include="Assets\QS\Sliced\ComposerUI.txt" />
+    <None Include="Assets\GooglePlayPlugins\com.google.play.assetdelivery\Proguard\asset_delivery.txt" />
+    <None Include="Assets\GooglePlayPlugins\com.google.play.core\Proguard\common.txt" />
     <None Include="Assets\Resources\Textures\Skills\Normal\ComposerUI.txt" />
     <None Include="Assets\QS\Atlas\no delete.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
@@ -657,6 +661,44 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.13f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Google.Play.Review.csproj">
+      <Project>{5745D20A-80B6-DB30-1E7E-89063C7D5678}</Project>
+      <Name>Google.Play.Review</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.AssetDelivery.csproj">
+      <Project>{083952D3-5377-24BB-0784-09A4A019D610}</Project>
+      <Name>Google.Play.AssetDelivery</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.Instant.csproj">
+      <Project>{A65FB75E-D0F3-E8FA-0C0B-79DBD5AF7660}</Project>
+      <Name>Google.Play.Instant</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.Billing.Editor.csproj">
+      <Project>{B25ACF44-D976-093D-6C58-7C2E7583ECE2}</Project>
+      <Name>Google.Play.Billing.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.Core.csproj">
+      <Project>{11122C15-31BA-B40A-0149-4517EFE0EE67}</Project>
+      <Name>Google.Play.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.Billing.csproj">
+      <Project>{68153332-0214-53DB-A0EF-7E5698045563}</Project>
+      <Name>Google.Play.Billing</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Android.AppBundle.Editor.csproj">
+      <Project>{CE7CC915-A54D-FC5F-418F-EFCFCCFDA119}</Project>
+      <Name>Google.Android.AppBundle.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.Instant.Editor.csproj">
+      <Project>{DD0456A2-874C-F7D2-C77C-9710BB61E03A}</Project>
+      <Name>Google.Play.Instant.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.Common.csproj">
+      <Project>{6DBC657C-DB3F-EE2C-C1B1-E2A00AF7E829}</Project>
+      <Name>Google.Play.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

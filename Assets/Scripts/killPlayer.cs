@@ -12,6 +12,7 @@ public class killPlayer : MonoBehaviour
     void Start()
     {
         spawnPoint = new Vector2(-5.0f, 3.0f);
+        Player = GameObject.FindObjectOfType<PlayerController>().gameObject;
     }
 
     // Update is called once per frame
@@ -35,7 +36,6 @@ public class killPlayer : MonoBehaviour
 
     void RespawnPlayer() 
     {
-        AudioSource.PlayClipAtPoint(deathNoise, transform.position);
         Player.SetActive(false);
         Player.transform.position = spawnPoint;
         Player.SetActive(true);
